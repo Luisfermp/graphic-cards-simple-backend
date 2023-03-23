@@ -1,0 +1,51 @@
+tags:
+- name: graphic-cards
+  description: Graphic Cards API
+
+paths:
+# [GET] graphic-cards
+  /graphic-cards:
+    get:
+      tags:
+      - graphic-cards
+      summary: Find All Graphic Cards
+      responses:
+        200:
+          description: 'OK'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    description: The name of the graphic card
+                    type: string
+                  manufacturer:
+                    description: The manufacturer name of the graphic card
+                    type: string
+                  model:
+                    description: The model of the graphic card
+                    type: string
+                  price:
+                    description: The price of the graphic card
+                    type: number
+                  image:
+                    descripJotion: The image url of the graphic card
+                    type: string
+                required: ['name', 'manufacturer', 'model', 'price', 'image']
+                additionalProperties: false
+              example:
+                {
+                  "data": [ {
+                      name: 'Nvidia EVGA 24G-P5-3998-KR',
+                      manufacturer: 'Nvidia',
+                      model: 'EVGA 24G-P5-3998-KR',
+                      price: 2039.74,
+                      image: 'https://assets.nvidia.partners/images/24G-P5-3998-KR.jpg',
+                    }]
+                }
+        500:
+          description: 'Server Error'
+schemes:
+ - https
+ - http
